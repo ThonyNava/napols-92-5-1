@@ -24,8 +24,8 @@ let habitacion_4 = {
 };
 let habitacion_5 = {
   huesped: "Majo",
-  numero: "",
-  bio: "",
+  numero: "34662467918",
+  bio: "Drive out of the city, away from the crowd.",
   img: "img/user.png",
 };
 let habitacion_6 = {
