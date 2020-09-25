@@ -83,14 +83,14 @@ for (let i = 0; i < bloques.length; i++) {
   let btns_danger = bloques[i].querySelectorAll(".btn-danger");
 
   for (let i = 0; i < btns_warning.length; i++) {
-    let dia = btns_warning[
-      i
-    ].parentElement.parentElement.parentElement.querySelector(".diaDeLimpieza")
-      .innerHTML;
-    let area = btns_warning[
-      i
-    ].parentElement.parentElement.parentElement.querySelector(".areaDeLimpieza")
-      .innerHTML;
+    let dia = btns_warning[i].parentElement.parentElement.parentElement
+      .querySelector(".diaDeLimpieza")
+      .innerHTML.trim()
+      .toLocaleLowerCase();
+    let area = btns_warning[i].parentElement.parentElement.parentElement
+      .querySelector(".areaDeLimpieza")
+      .innerHTML.trim()
+      .toLocaleLowerCase();
 
     // console.log(dia);
     // console.log(area);
