@@ -30,7 +30,7 @@ let habitacion_5 = {
 };
 let habitacion_6 = {
   huesped: "Eva",
-  numero: "+351911881288",
+  numero: "351911881288",
   bio: "Soy una bomba sexual ♥️",
   img: "img/6.jpeg",
 };
@@ -64,9 +64,36 @@ let huespedes = [
   habitacion_8,
 ];
 
-let bloques = Array.from(document.querySelectorAll(".bloque"));
+function numberOfTheWeek(date) {
+  var today = new Date(date.valueOf());
+  var numberOfTheDay = (date.getDay() + 6) % 7;
+  today.setDate(today.getDate() - numberOfTheDay + 3);
+  var firstThursday = today.valueOf();
+  today.setMonth(0, 1);
+  if (today.getDay() !== 4) {
+    today.setMonth(0, 1 + ((4 - today.getDay() + 7) % 7));
+  }
+  return 1 + Math.ceil((firstThursday - today) / 604800000);
+}
 
-// console.log(bloques[0]);
+let todayDate = new Date();
+let weekNumber = numberOfTheWeek(todayDate);
+
+let huespedReasignator = (arr, weekNumber) => {
+  let arrHue = arr.slice(0, arr.length);
+  let roundsfl = weekNumber / arr.length - Math.floor(weekNumber / arr.length);
+  let rounds = roundsfl * arr.length;
+  for (let i = 0; i < rounds; i++) {
+    arrHue.push(arrHue[0]);
+    arrHue = arrHue.slice(1, arrHue.length);
+    console.log(arrHue);
+  }
+  return arrHue;
+};
+
+huespedes = huespedReasignator(huespedes, weekNumber);
+
+let bloques = Array.from(document.querySelectorAll(".bloque"));
 
 for (let i = 0; i < bloques.length; i++) {
   let hsp_numero = huespedes[i].numero;
