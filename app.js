@@ -83,6 +83,7 @@ let huespedReasignator = (arr, weekNumber) => {
   let arrHue = arr.slice(0, arr.length);
   let roundsfl = weekNumber / arr.length - Math.floor(weekNumber / arr.length);
   let rounds = roundsfl * arr.length;
+  console.log(rounds);
   for (let i = 0; i < rounds; i++) {
     arrHue.push(arrHue[0]);
     arrHue = arrHue.slice(1, arrHue.length);
